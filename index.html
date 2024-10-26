@@ -1,14 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Digital Clock</title>
-</head>
-<body>
-    <h1>Digital Clock</h1>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        transition: background-color 0.5s, color 0.5s;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+      }
+      .background-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 0.5s;
+      }
+      .active {
+        opacity: 5;
+      }
+    </style>
+  </head>
+  <body
+    class="flex items-center justify-center h-screen bg-gray-100 text-gray-800"
+  >
+    <!-- Background Images -->
+    <img
+    src="image/day-view.jpg"
+    alt="Day Background"
+    class="background-img active center mt-0"
+    id="dayBackground"
+    />
+    <img
+    src="image/night-view-clock.jpg"
+      alt="Night Background"
+      class="background-img"
+      id="nightBackground"
+    />
 
+    <div id="clock" class="text-center bg-opacity-70 p-6 rounded-lg shadow-lg">
+      <h1 class="text-5xl font-bold" id="time"></h1>
+      <p class="text-2xl" id="date"></p>
+      <br />
+      <button
+        id="toggleMode"
+        class="mt-5 px-4 py-2 bg-blue-500 text-white rounded"
+      >
+        Toggle Day/Night Mode
+      </button>
+    </div>
 
     <script src="app.js"></script>
-</body>
+  </body>
 </html>
